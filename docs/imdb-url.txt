@@ -1,39 +1,43 @@
+IMDb
+Titles - Movies
+Principals - Actors
 
-http://myimdb.com/api/v1/
-http://myimdb.com/api/v2/
+Roles: Anonymous User
+       Editor
+	   Publisher
+CRUD: POST, GET, PUT, DELETE
 
-Create - POST
-Read   - GET
-Update - PUT
-Delete - DELETE
-
-"Convention" -
-/{controller}/{id}
-
-GET /titles                     - Return all titles (movies, tv, etc.)
-                                  SELECT * FROM title;
-GET /titles/{title_id}          - Return a specific title / movie
-                                  SELECT * FROM title WHERE title_id = ?;
-GET /titles?name={search}       - Searchs movies titles by name
-                                  SELECT * FROM title WHERE primary_title 
-                                  LIKE '%search%'
-GET /titles/{title_id}/talent   - Returns all actors/actress for a title
-POST /titles                    - Create a new title.
-PUT /titles/{title_id}          - Updates a title.
-DELETE /titles/{title_id}       - Deletes or removes a title.
-							    
-GET /talents                    - Return all actors/actress
-                                  SELECT * FROM talent;
-GET /talents/{talent_id}        - Get the actor or actress
-                                  SELECT * FROM talent WHERE talent_id = ?
-GET /talents/{talent_id}/movies - Get all the movies that have appeared in
-POST /talents                   - Create a new talent
-                                  { name: 'John Snow', birthYear: 1990 }
-PUT /talents/{talent_id}        - Update a talent
-                                  { name: 'Johnathon Snow' } 
-                                  UPDATE talent SET talent_name = ?
-                                  WHERE talent_id = ?								  
-DELETE /talents/{talent_id}     - Deletes a talent
-
-
+- As an anonymous user, I want to be able to
+  get a list of all movies, so that I can check
+  which movies I want to watch next.
+  
+  GET /movies
+  
+- As an anonymous user, I want to be able to get
+  the details about a specific movie by it's unique id
+  so that I can see if it's something I want to 
+  watch.
+  
+  GET /movies/{movieid}   // movieid = tt3704428, tt1745960
+  
+- As an anonymous user, I want to be able to search
+  for a movie based on part of a movies name so that
+  I can find the movie I want to watch.
+  
+  GET /movies?name=Hobbit
+  
+- As an anonymous user, I want to be able to see
+  a list of all actors/actresses that are in a particular movie.
+- As an anonymous user, I want to be able to view all movies
+  for a particular actor/actress.
+- As an anoymous user, I want to be able to search for
+  an actor/actress based on all or part of their name so
+  that I can filter the list quickly.
+- As an publisher, I want to be able to create movies
+  so that I can add new information for users to view.
+- As an editor, I want to be able to change, correct or
+  add information about a movie so that the information is
+  current and accurate.  
+- As a publisher, I want to be able to delete movies so
+  that I can remove invalid or incorrect information.  
 
